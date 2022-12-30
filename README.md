@@ -1,6 +1,34 @@
 # storybook-yarn
 
-Teste yarn v3 (berry) with storybook v7
+> The original issue (ERR_UNSUPPORTED_ESM_URL_SCHEME) is fixed on storybook.
+> Now there's another error with yarn v4 (v3 works fine)
+
+Test yarn v4 (berry) with storybook v7
+
+Running yarn storybook we get an error:
+
+```
+ERR! Error: Path contains invalid characters: D:\repositories\storybook-yarn\node_modules\.cache\sb-manager\.yarn\__virtual__\@storybook-addon-links-virtual-7a0d1ebbb1\4\C:\Users\camar\AppData\Local\Yarn\Berry\cache\@storybook-addon-links-npm-7.0.0-beta.17-cc8db3676f-9.zip\node_modules\@storybook\addon-links\dist
+ERR!     at checkPath (C:\Users\camar\AppData\Local\Yarn\Berry\cache\fs-extra-npm-9.1.0-983c2ddb4c-9.zip\node_modules\fs-extra\lib\mkdirs\make-dir.js:20:21)
+ERR!     at module.exports.makeDir (C:\Users\camar\AppData\Local\Yarn\Berry\cache\fs-extra-npm-9.1.0-983c2ddb4c-9.zip\node_modules\fs-extra\lib\mkdirs\make-dir.js:45:3)
+ERR!     at Object.defineProperty.value (C:\Users\camar\AppData\Local\Yarn\Berry\cache\universalify-npm-2.0.0-03b8b418a8-9.zip\node_modules\universalify\index.js:22:13)
+ERR!     at C:\Users\camar\AppData\Local\Yarn\Berry\cache\fs-extra-npm-9.1.0-983c2ddb4c-9.zip\node_modules\fs-extra\lib\ensure\file.js:23:24
+ERR!     at callback (C:\Users\camar\AppData\Local\Yarn\Berry\cache\graceful-fs-npm-4.2.10-79c70989ca-9.zip\node_modules\graceful-fs\polyfills.js:306:20)
+ERR!     at D:\repositories\storybook-yarn\.pnp.cjs:14076:13
+ERR!  Error: Path contains invalid characters: D:\repositories\storybook-yarn\node_modules\.cache\sb-manager\.yarn\__virtual__\@storybook-addon-links-virtual-7a0d1ebbb1\4\C:\Users\camar\AppData\Local\Yarn\Berry\cache\@storybook-addon-links-npm-7.0.0-beta.17-cc8db3676f-9.zip\node_modules\@storybook\addon-links\dist
+ERR!     at checkPath (C:\Users\camar\AppData\Local\Yarn\Berry\cache\fs-extra-npm-9.1.0-983c2ddb4c-9.zip\node_modules\fs-extra\lib\mkdirs\make-dir.js:20:21)
+ERR!     at module.exports.makeDir (C:\Users\camar\AppData\Local\Yarn\Berry\cache\fs-extra-npm-9.1.0-983c2ddb4c-9.zip\node_modules\fs-extra\lib\mkdirs\make-dir.js:45:3)
+ERR!     at Object.defineProperty.value (C:\Users\camar\AppData\Local\Yarn\Berry\cache\universalify-npm-2.0.0-03b8b418a8-9.zip\node_modules\universalify\index.js:22:13)
+ERR!     at C:\Users\camar\AppData\Local\Yarn\Berry\cache\fs-extra-npm-9.1.0-983c2ddb4c-9.zip\node_modules\fs-extra\lib\ensure\file.js:23:24
+ERR!     at callback (C:\Users\camar\AppData\Local\Yarn\Berry\cache\graceful-fs-npm-4.2.10-79c70989ca-9.zip\node_modules\graceful-fs\polyfills.js:306:20)
+ERR!     at D:\repositories\storybook-yarn\.pnp.cjs:14076:13 {
+ERR!   code: 'EINVAL'
+ERR! }
+```
+
+## Original issue
+
+Test yarn v3 (berry) with storybook v7
 
 Steps:
 

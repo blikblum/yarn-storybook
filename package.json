@@ -1,7 +1,7 @@
 {
   "name": "storybook-yarn",
   "type": "module",
-  "packageManager": "yarn@3.3.1",
+  "packageManager": "yarn@4.0.0-rc.34",
   "devDependencies": {
     "@storybook/addon-essentials": "7.0.0-beta.17",
     "@storybook/addon-links": "7.0.0-beta.17",
