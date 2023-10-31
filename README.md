@@ -1,11 +1,29 @@
 # storybook-yarn
 
-> The original issue (ERR_UNSUPPORTED_ESM_URL_SCHEME) is fixed on storybook.
-> Now there's another error with yarn v4 (v3 works fine)
+> The original issue (ERR_UNSUPPORTED_ESM_URL_SCHEME) is fixed on storybook. See below
 
-Test yarn v4 (berry) with storybook v7
+Test yarn v4.0.0 (berry) with global cache enabled and storybook v7.5.1
 
-Running yarn storybook we get an error:
+Reported at https://github.com/storybookjs/storybook/issues/24635
+
+Running `yarn storybook` we get an error:
+
+```
+Error: Failed to load static files, no such directory: .\C:\Users\camar\AppData\Local\Yarn\Berry\cache\@storybook-manager-npm-7.5.1-b9f503fb19-10c0.zip\node_modules\@storybook\manager\static
+Make sure this directory exists, or omit the -s (--static-dir) option.
+    at parseStaticDir (C:\Users\camar\AppData\Local\Yarn\Berry\cache\@storybook-core-server-npm-7.5.1-02b6f24941-10c0.zip\node_modules\@storybook\core-server\dist\presets\common-preset.js:14:2310)
+    at async C:\Users\camar\AppData\Local\Yarn\Berry\cache\@storybook-core-server-npm-7.5.1-02b6f24941-10c0.zip\node_modules\@storybook\core-server\dist\presets\common-preset.js:17:2925
+    at async Promise.all (index 0)
+    at async Object.favicon (C:\Users\camar\AppData\Local\Yarn\Berry\cache\@storybook-core-server-npm-7.5.1-02b6f24941-10c0.zip\node_modules\@storybook\core-server\dist\presets\common-preset.js:17:2687)
+    at async useStatics (C:\Users\camar\AppData\Local\Yarn\Berry\cache\@storybook-core-server-npm-7.5.1-02b6f24941-10c0.zip\node_modules\@storybook\core-server\dist\index.js:48:6508)
+    at async Promise.all (index 2)
+    at async storybookDevServer (C:\Users\camar\AppData\Local\Yarn\Berry\cache\@storybook-core-server-npm-7.5.1-02b6f24941-10c0.zip\node_modules\@storybook\core-server\dist\index.js:104:1159)
+    at async buildDevStandalone (C:\Users\camar\AppData\Local\Yarn\Berry\cache\@storybook-core-server-npm-7.5.1-02b6f24941-10c0.zip\node_modules\@storybook\core-server\dist\index.js:119:3007)
+    at async withTelemetry (C:\Users\camar\AppData\Local\Yarn\Berry\cache\@storybook-core-server-npm-7.5.1-02b6f24941-10c0.zip\node_modules\@storybook\core-server\dist\index.js:103:3903)
+    at async dev (C:\Users\camar\AppData\Local\Yarn\Berry\cache\@storybook-cli-npm-7.5.1-8d005d3abc-10c0.zip\node_modules\@storybook\cli\dist\generate.js:473:401)
+```
+
+Previously with yarn prerelease and storybook v7.0.0-beta.17 we got a different error:
 
 ```
 ERR! Error: Path contains invalid characters: D:\repositories\storybook-yarn\node_modules\.cache\sb-manager\.yarn\__virtual__\@storybook-addon-links-virtual-7a0d1ebbb1\4\C:\Users\camar\AppData\Local\Yarn\Berry\cache\@storybook-addon-links-npm-7.0.0-beta.17-cc8db3676f-9.zip\node_modules\@storybook\addon-links\dist
@@ -27,6 +45,8 @@ ERR! }
 ```
 
 ## Original issue
+
+> reported at: https://github.com/storybookjs/storybook/issues/20404
 
 Test yarn v3 (berry) with storybook v7
 
